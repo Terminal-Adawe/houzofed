@@ -357,6 +357,17 @@ background: linear-gradient(to top, #FFC837, #FF8008); /* W3C, IE 10+/ Edge, Fir
     color: #111;
 }
 
+.linkToItems7 {
+    text-decoration: none;
+    border: none;
+    background: none;
+    color: #424949;
+}
+
+.linkToItems7:hover {
+    color: black;
+}
+
 .nav-item:hover .badge{
     color: #5dade2;
 }
@@ -536,8 +547,8 @@ background: linear-gradient(to top, #FFC837, #FF8008); /* W3C, IE 10+/ Edge, Fir
 
 #items-row{
     position: relative; 
-    padding-top: 55px; 
-    padding-bottom: 52px;
+    padding-top: 10px; 
+    padding-bottom: 10px;
 }
 
 .columnarea{
@@ -726,8 +737,8 @@ background: linear-gradient(to top, #FFC837, #FF8008); /* W3C, IE 10+/ Edge, Fir
 }
 
 .life-categories{
-    padding-top: 150px;
-    padding-bottom: 170px;
+    padding-top: 50px;
+    padding-bottom: 40px;
     background-color: #dc7633;
     overflow: hidden;
 }
@@ -784,7 +795,7 @@ background: linear-gradient(to top, #FFC837, #FF8008); /* W3C, IE 10+/ Edge, Fir
 }
 
 #categoryItemsDiv{
-    padding-bottom: 200px;
+    padding-bottom: 50px;
 }
 
 

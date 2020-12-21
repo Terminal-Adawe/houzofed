@@ -12,8 +12,8 @@ class Showitems extends React.Component {
 			items: [],
 			cart: [],
 			categories: [],
-			categoryinfo: [],
 			categoryid: document.getElementById("categoryid-items").value,
+			extracategoryid: document.getElementById("extra-category-type").value,
 			type: document.getElementById("category-type").value,
 			csrfField: document.querySelector("meta[name='csrf-token']").getAttribute("content")
 		}
@@ -24,7 +24,7 @@ class Showitems extends React.Component {
 	}
 
 	async getData(){
-   		const res = await axios(`/api/categories/items/${this.state.categoryid}&${this.state.type}`);
+   		const res = await axios(`/api/categories/items/${this.state.categoryid}&${this.state.type}&${this.state.extracategoryid}`);
    
    		return await res;
 	}
@@ -34,12 +34,11 @@ class Showitems extends React.Component {
 		console.log("category ID being sent is "+this.state.categoryid)
 
 		this.getData().then(response=>{
-				console.log("response is "+response)
+				console.log(response)
 
 				this.setState({
 					items: response.data.items,
-					categories: response.data.categories,
-					categoryinfo: response.data.categoryid
+					categories: response.data.categories
 				})
 			})
 	}
@@ -66,16 +65,16 @@ class Showitems extends React.Component {
 
 		// console.log("about to filter categories: "+JSON.stringify(items.categories))
 		// console.log("about to filter items: "+JSON.stringify(items.items))
-		// console.log("category id to filter is: "+items.categoryid)
+		console.log("category id to filter is: "+items.categoryid)
 
 		return (<div>
-			<CategoriesHeader categories = { items.categories } categoryinfo={ items.categoryinfo } cart={ items.cart } csrfField={ this.state.csrfField } categoryid={ this.getCategoryId }/>
+			<CategoriesHeader categories = { items.categories } cart={ items.cart } csrfField={ this.state.csrfField } categoryid={ this.getCategoryId } selectedCategoryid={ items.categoryid }/>
 
 			<div className="container-fluid mt-4">
     	<div className="row no-gutters" id="items-row">
     		
     	{
-			items.items.filter(item=>item.categoryid==items.categoryid || items.categoryid == "all" ).map((item,i)=>{
+			items.items.filter(item=>item.categoryid==items.categoryid || items.categoryid == "all").map((item,i)=>{
 				const url = "/storage/"+item.item_image_path
 				console.log("image url: "+url+"\nItem: "+item.iid)
 				console.log("image url: "+url+"\nItem ID: "+item.id)

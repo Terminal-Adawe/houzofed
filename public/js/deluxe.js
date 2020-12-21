@@ -48,7 +48,7 @@ for ( var i = 0, len = elms.length; i < len; i++ ) {
         response.data.features.forEach(function(i){
           console.log("feature... "+i.feature);
 
-          $(cat).parent().siblings('.dropdown-menu').find('.feature-start').after('<a class="dropdown-item" href="#">'+i.feature+'</a>');
+          $(cat).parent().siblings('.dropdown-menu').find('.feature-start').after('<form action="/categories" method="get" id="catSaveForm" enctype="multipart/form-data" class="form-horizontal mx-auto"><input type="hidden" name="csrf_token" value="'+document.querySelector("meta[name='csrf-token']").getAttribute("content")+'" /><input type="hidden" class="nav-catid" name="categoryid" value="'+i.fid+'"><input type="hidden" name="type" value="categories-feature"><input type="hidden" name="extracategory" value="'+id+'"><button class="linkToItems7 extra-cat" type="submit" id="navbarDropdown" aria-haspopup="true" aria-expanded="false">'+i.feature+'</button></form>');
           
           showHoverBar = 1;
         });
@@ -57,7 +57,7 @@ for ( var i = 0, len = elms.length; i < len; i++ ) {
         response.data.purposes.forEach(function(i){
           console.log("purpose... "+i.purpose);
 
-          $(cat).parent().siblings('.dropdown-menu').find('.purpose-start').after('<a class="dropdown-item" href="#">'+i.purpose+'</a>');
+          $(cat).parent().siblings('.dropdown-menu').find('.purpose-start').after('<form action="/categories" method="get" id="catSaveForm" enctype="multipart/form-data" class="form-horizontal mx-auto"><input type="hidden" name="csrf_token" value="'+document.querySelector("meta[name='csrf-token']").getAttribute("content")+'" /><input type="hidden" class="nav-catid" name="categoryid" value="'+i.pid+'"><input type="hidden" name="type" value="categories-purpose"><input type="hidden" name="extracategory" value="'+id+'"><button class="linkToItems7 extra-cat" type="submit" id="navbarDropdown" aria-haspopup="true" aria-expanded="false">'+i.purpose+'</button></form>');
           
           showHoverBar = 1;
         });
@@ -71,6 +71,16 @@ for ( var i = 0, len = elms.length; i < len; i++ ) {
     
 
 
+    if($('.message-modal').val()!=0){
+        // var myModal = new bootstrap.Modal(document.getElementById('status-modal'));
+
+        $('#status-modal').modal('show');
+
+        console.log("message modal value is "+$('.message-modal').val());
+
+        // myModal.show();
+
+    }
 
  });
 

@@ -175,6 +175,7 @@
 				<span class="mx-auto">Copyright</span>
 			</div>
 		</div>
+    
 	</footer>
 	<!-- Jquery needed -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

@@ -1,7 +1,7 @@
 <section>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-lg-6 col-sm-12" style="background-color: white; padding-top: 80px; padding-bottom: 80px;">
+			<div class="col-lg-6 col-sm-12" style="background-color: white; padding-top: 50px; padding-bottom: 50px;">
 				<div class="row my-4">
 					<span class="mx-auto" style="color: #f5b041;"><h2><b>Limited Edition</b></h2></span>
 				</div>
@@ -25,7 +25,7 @@
 			</div>
 
 
-			<div class="col-lg-6 col-sm-12" style="background-color: #ecf0f1; padding-top: 80px; padding-bottom: 80px;">
+			<div class="col-lg-6 col-sm-12" style="background-color: #ecf0f1; padding-top: 50px; padding-bottom: 50px;">
 				<div class="row my-4">
 					<span class="mx-auto" style="color: #f5b041;"><h2><b>Best Seller</b></h2></span>
 				</div>

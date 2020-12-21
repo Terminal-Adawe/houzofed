@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-	Route::get('/categories/items/{id}&{type}', 'showCategoryItemsController@showItems');
+	Route::get('/categories/items/{id}&{type}&{extracategory}', 'showCategoryItemsController@showItems');
     Route::get('/updateCart', 'cartController@updateCart');
 
     Route::get('/getFeatures', 'showCategoryItemsController@getFeatures');

@@ -7,6 +7,7 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <input type="hidden" name="sub-category-type" id="sub-cateogory-type" value="">
     <ul class="navbar-nav mr-auto">
       @foreach($data['categories'] as $category)
       <li class="nav-item  position-static mx-4">
@@ -14,6 +15,7 @@
             {{ csrf_field() }}
           <input type="hidden" class="nav-catid" name="categoryid" value="{{ $category->id }}">
           <input type="hidden" name="type" value="category">
+          <input type="hidden" name="extracategory" value="none">
           <button class="nav-link linkToItems6" type="submit" id="navbarDropdown" aria-haspopup="true" aria-expanded="false">
             {{ $category->category_name }}
           </button>
@@ -21,7 +23,7 @@
         <div class="dropdown-menu w-100" aria-labelledby="navbarDropdown">
           <div class="container-fluid">
           	<div class="row">
-          		<div class="col-lg-8 col">
+          		<div class="col-lg-8 col mt-3">
                 <input type="hidden" name="" class="feature-start">
           			<div class="dropdown-divider"></div>
           			<input type="hidden" name="" class="purpose-start">

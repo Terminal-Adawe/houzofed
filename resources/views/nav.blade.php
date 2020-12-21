@@ -82,11 +82,14 @@
 
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active mx-4">
-        <a class="nav-link" href="/">
-          <!-- <i class="fas fa-home fa-3x" style="color: #e67e22;"></i> -->
-          <img src="{{ Storage::url($data['shopdetails']->logo ?? '') }}" class="logoImg3" />
-          <!-- <span class="sr-only">(current)</span> -->
-          </a>
+        <div class="logoImg3">
+          <a class="nav-link" href="/">
+            <!-- <i class="fas fa-home fa-3x" style="color: #e67e22;"></i> -->
+            <img src="{{ Storage::url($data['shopdetails']->logo ?? '') }}"  width="100%" />
+            <!-- <span class="sr-only">(current)</span> -->
+            </a>
+            <marquee behavior="scroll" direction="left" scrollamount="2" style="color: whitesmoke; text-shadow: 1px 1px 1px #4d5656;"><small>How you feel matters</small></marquee>
+        </div>
       </li>
     </ul>
     <ul class="navbar-nav">

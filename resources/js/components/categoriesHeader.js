@@ -24,7 +24,12 @@ function CategoriesHeader(props){
                 }
             	</div>
                 <div className="p-2">
-                	{ props.categoryinfo.category_name }	
+                    {
+                    props.categories.filter(category => props.selectedCategoryid == category.id).map((category,i)=>{
+                            return <span key={i}> 
+                        <button type='button' className="linkToItems3" onClick={ ()=>props.categoryid(category.id) }>{ category.category_name }</button> </span>
+                    })
+                }	
                 </div>
             </div>
         </div>

@@ -1,5 +1,4 @@
 @include('header')
-
     <section class="home" style="background-image: url('{{ asset('images/womanClothing.jpg') }}')">
     	
     </section>
@@ -78,7 +77,7 @@ background: linear-gradient(to right, #ffcc33, #ffb347); /* W3C, IE 10+/ Edge, F
     </div>
  -->
  <!-- <hr/> -->
-    <div class="container-fluid mt-4" style="padding-top: 80px; padding-bottom: 80px;">
+    <div class="container-fluid mt-4" style="padding-top: 50px; padding-bottom: 50px;">
     	
         <div class="row my-3">
             <span class="mx-auto" style="color: #f5b041;"><h1>Shop by Category</h1></span>

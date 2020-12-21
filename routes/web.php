@@ -136,6 +136,7 @@ Route::get('/privacypolicy','aboutPageController@showAbout');
 Route::get('/customerservice','customerServiceController@showDetails');
 Route::post('/addComment','customerServiceController@addComment');
 Route::get('/FAQs','customerServiceController@showFAQs');
+Route::get('/newsletter-subscribe','newsletterController@subscribe');
 
 Route::post('/receipt','checkoutController@placeorder');
 Route::get('/receipt',function(){

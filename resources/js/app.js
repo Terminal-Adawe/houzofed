@@ -14,3 +14,4 @@ require('./bootstrap');
 
 require('./components/showItems');
 require('./components/addToCartButton');
+require('./components/newsletter');

@@ -40,6 +40,7 @@ class showCategoryItemsController extends Controller
 
         $data['categoryid'] = $request->categoryid;
         $data['type'] = $request->type;
+        $data['extracategory'] = $request->extracategory;
 
         return view('items')->with('data',$data);
     }
@@ -47,13 +48,9 @@ class showCategoryItemsController extends Controller
     public function showItems (Request $request){
         $categoryid = $request->id;
         $type = trim($request->type);
+        $extracategory = $request->extracategory;
         // $data['items'] = "";
 
-        if($categoryid=="all"){
-            $data['categoryid'] = $categoryid;
-        } else {
-            $data['categoryid'] = Category::find($categoryid);
-        }
 
         if($type == "category"){
             $data['categories'] = Category::all();
@@ -64,7 +61,6 @@ class showCategoryItemsController extends Controller
                 ->join('item_quantity','items.id','=','item_quantity.item_id')
                 ->select('*','items.id as iid','item_images.image_path as item_image_path', 'categories.id as categoryid')
                 ->get();
-
 
         }
 
@@ -90,6 +86,35 @@ class showCategoryItemsController extends Controller
                 ->join('item_images','items.item_image_id','=','item_images.id')
                 ->join('item_quantity','items.id','=','item_quantity.item_id')
                 ->select('*','items.id as iid','item_images.image_path as item_image_path', 'purposes.id as categoryid')
+                ->get();
+
+        }
+
+        if($type == "categories-purpose"){
+            $data['categories'] = Purpose::select('*','purpose as category_name')
+                                    ->get();
+
+            $data['items'] = Purpose::join('items','items.suitable_purposes','=','purposes.purpose')
+                ->join('item_prices','item_prices.item_id','=','items.id')
+                ->join('item_images','items.item_image_id','=','item_images.id')
+                ->join('item_quantity','items.id','=','item_quantity.item_id')
+                ->join('categories','items.category','categories.category_name')
+                ->where('categories.id',$extracategory)
+                ->select('*','items.id as iid','item_images.image_path as item_image_path', 'purposes.id as categoryid')
+                ->get();
+        }
+
+        if($type == "categories-feature"){
+            $data['categories'] = Feature::select('*','feature as category_name')
+                                    ->get();
+
+            $data['items'] = Feature::join('items','items.feature','=','features.feature')
+                ->join('item_prices','item_prices.item_id','=','items.id')
+                ->join('item_images','items.item_image_id','=','item_images.id')
+                ->join('item_quantity','items.id','=','item_quantity.item_id')
+                ->join('categories','items.category','categories.category_name')
+                ->where('categories.id',$extracategory)
+                ->select('*','items.id as iid','item_images.image_path as item_image_path', 'features.id as categoryid')
                 ->get();
         }
         
